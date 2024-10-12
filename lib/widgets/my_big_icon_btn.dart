@@ -13,10 +13,13 @@ class ByBigIconButton extends StatelessWidget {
       color: context.colorTheme.onyx.withOpacity(0.7),
       shape: const CircleBorder(),
       child: Center(
-        child: Icon(
-          iconData,
-          size: 40,
-          color: Colors.white,
+        child: IconButton(
+          onPressed: onPressed,
+          icon: Icon(
+            iconData,
+            size: 40,
+            color: Colors.white,
+          ),
         ),
       ),
     );
