@@ -9,7 +9,7 @@ class ExploreView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        for (var i = 0; i < 100; i++)
+        for (var i = 0; i < 2; i++)
           Dismissible(
             key: Key(i.toString()),
             secondaryBackground: const ColoredBox(

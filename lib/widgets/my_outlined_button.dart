@@ -1,5 +1,6 @@
-import 'package:cvelocity/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+
+import '../theme/app_theme.dart';
 
 class MyOutlinedButton extends StatelessWidget {
   const MyOutlinedButton(
@@ -24,9 +25,7 @@ class MyOutlinedButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: context.textTheme.smallText.copyWith(
-          color: context.colorTheme.lightGrey,
-        ),
+        style: context.textTheme.smallText,
       ),
     );
   }
