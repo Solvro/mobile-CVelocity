@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../theme/app_theme.dart';
+import '../../../theme/app_theme.dart';
 import 'widgets/login_widget.dart';
 import 'widgets/register_widget.dart';
 

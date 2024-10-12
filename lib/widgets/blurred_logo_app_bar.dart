@@ -1,10 +1,10 @@
-import 'package:cvelocity/features/chats-view/chats_view.dart';
-import 'package:cvelocity/theme/app_theme.dart';
-import 'package:cvelocity/widgets/logo.dart';
-import 'package:cvelocity/widgets/profile_avatar.dart';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 
-import 'dart:ui' as ui;
+import '../theme/app_theme.dart';
+import 'logo.dart';
+import 'profile_avatar.dart';
 
 class BlurredLogoAppBar extends AppBar {
   BlurredLogoAppBar(
