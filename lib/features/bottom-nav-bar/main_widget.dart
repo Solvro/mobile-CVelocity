@@ -1,3 +1,4 @@
+import 'package:cvelocity/features/chats-view/chats_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -11,11 +12,7 @@ class MainWidget extends ConsumerWidget {
   static const widgetMap = {
     BottomNavbarEnum.explore: ExploreView(),
     BottomNavbarEnum.likes: LikesView(),
-    BottomNavbarEnum.chats: Scaffold(
-      body: Center(
-        child: Text("3"),
-      ),
-    ),
+    BottomNavbarEnum.chats: ChatsView()
   };
 
   @override

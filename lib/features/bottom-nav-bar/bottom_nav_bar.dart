@@ -17,42 +17,44 @@ class MyBottomNavBar extends ConsumerWidget {
 
     return SafeArea(
         child: Container(
-      padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        color: context.colorTheme.onyx.withOpacity(0.9),
-        borderRadius: BorderRadius.circular(56),
-      ),
       child: ClipRRect(
+        borderRadius: BorderRadius.circular(56),
         child: BackdropFilter(
             filter: ui.ImageFilter.blur(
-              sigmaX: 2.5,
-              sigmaY: 2.5,
+              sigmaX: 10,
+              sigmaY: 10,
             ),
-            child: Center(
-              child: BottomNavigationBar(
-                currentIndex: activeTab.index,
-                onTap: (value) => ref
-                    .read(bottomNavbarControllerProvider.notifier)
-                    .setTab(BottomNavbarEnum.values[value]),
-                items: [
-                  ...BottomNavbarEnum.values.map((e) {
-                    return BottomNavigationBarItem(
-                      icon: Center(
-                        child: Icon(
-                          e.icon,
-                          size: 40,
+            child: Container(
+              decoration: BoxDecoration(
+                color: context.colorTheme.onyx.withOpacity(0.9),
+              ),
+              padding: const EdgeInsets.all(16),
+              child: Center(
+                child: BottomNavigationBar(
+                  currentIndex: activeTab.index,
+                  onTap: (value) => ref
+                      .read(bottomNavbarControllerProvider.notifier)
+                      .setTab(BottomNavbarEnum.values[value]),
+                  items: [
+                    ...BottomNavbarEnum.values.map((e) {
+                      return BottomNavigationBarItem(
+                        icon: Center(
+                          child: Icon(
+                            e.icon,
+                            size: 40,
+                          ),
                         ),
-                      ),
-                      label: e.label,
-                    );
-                  }),
-                ],
-                selectedItemColor: context.colorTheme.indigoLight,
-                unselectedItemColor: context.colorTheme.lightGrey,
-                iconSize: 40,
-                backgroundColor: Colors.transparent,
-                elevation: 0,
+                        label: e.label,
+                      );
+                    }),
+                  ],
+                  selectedItemColor: context.colorTheme.indigoLight,
+                  unselectedItemColor: context.colorTheme.lightGrey,
+                  iconSize: 40,
+                  backgroundColor: Colors.transparent,
+                  elevation: 0,
+                ),
               ),
             )),
       ),
