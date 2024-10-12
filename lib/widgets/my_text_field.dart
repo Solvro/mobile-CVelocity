@@ -1,16 +1,19 @@
-import 'package:cvelocity/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
+
+import '../theme/app_theme.dart';
 
 class MyTextField extends StatelessWidget {
-  const MyTextField(
-      {super.key,
-      required this.textController,
-      required this.labelText,
-      required this.hintText,
-      required this.textStyle,
-      required this.obscureText});
+  const MyTextField({
+    super.key,
+    required this.formControl,
+    required this.labelText,
+    required this.hintText,
+    required this.textStyle,
+    required this.obscureText,
+  });
 
-  final TextEditingController textController;
+  final FormControl? formControl;
   final String labelText;
   final String hintText;
   final TextStyle textStyle;
@@ -18,8 +21,8 @@ class MyTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      controller: textController,
+    return ReactiveTextField(
+      formControl: formControl,
       style: textStyle,
       cursorColor: context.colorTheme.onyx,
       obscureText: obscureText,
