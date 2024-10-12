@@ -1,9 +1,15 @@
-import 'package:cvelocity/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
+import '../../../theme/app_theme.dart';
+
 class ChatTextField extends HookWidget {
-  const ChatTextField({super.key, required this.textController, required this.hintText, required this.textStyle, required this.onTap});
+  const ChatTextField(
+      {super.key,
+      required this.textController,
+      required this.hintText,
+      required this.textStyle,
+      required this.onTap});
 
   final TextEditingController textController;
   final String hintText;
@@ -12,8 +18,6 @@ class ChatTextField extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-
-
     return TextField(
       controller: textController,
       style: textStyle,

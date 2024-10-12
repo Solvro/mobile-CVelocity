@@ -1,9 +1,9 @@
-import 'package:cvelocity/features/settings-view/settings_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/my_big_icon_btn.dart';
 import '../profile-preview-view/models/cv.dart';
 import '../profile-preview-view/profile_preview_view.dart';
+import '../settings-view/settings_view.dart';
 
 class MyProfileView extends StatelessWidget {
   const MyProfileView({super.key});

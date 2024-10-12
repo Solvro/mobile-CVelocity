@@ -1,7 +1,7 @@
-import 'package:cvelocity/widgets/blurred_logo_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/app_theme.dart';
+import '../../widgets/blurred_logo_app_bar.dart';
 import '../../widgets/tile_splash.dart';
 
 class LikesView extends StatelessWidget {

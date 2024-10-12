@@ -1,14 +1,13 @@
 import 'dart:io';
 
-import 'package:cvelocity/features/profile-preview-view/widgets/card.dart';
-import 'package:cvelocity/features/profile-preview-view/widgets/desc.dart';
-import 'package:cvelocity/features/profile-preview-view/widgets/header.dart';
-import 'package:cvelocity/features/profile-preview-view/widgets/tag.dart';
-import 'package:cvelocity/features/profile-preview-view/widgets/tile_wrap.dart';
-import 'package:cvelocity/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
+import '../../theme/app_theme.dart';
 import '../profile-preview-view/models/cv.dart';
+import '../profile-preview-view/widgets/card.dart';
+import '../profile-preview-view/widgets/header.dart';
+import '../profile-preview-view/widgets/tag.dart';
+import '../profile-preview-view/widgets/tile_wrap.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key, required this.cv});

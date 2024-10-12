@@ -1,7 +1,7 @@
-import 'package:cvelocity/features/chats-view/chats_view.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../chats-view/chats_view.dart';
 import '../explore-view/explore_view.dart';
 import '../likes-view/likes_view.dart';
 import 'bottom_navbar_controller.dart';

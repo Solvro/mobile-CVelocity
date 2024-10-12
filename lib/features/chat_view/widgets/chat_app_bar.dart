@@ -1,13 +1,14 @@
-import 'package:cvelocity/theme/app_theme.dart';
-import 'package:cvelocity/widgets/logo.dart';
-import 'package:cvelocity/widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
+
+import '../../../theme/app_theme.dart';
+import '../../../widgets/profile_avatar.dart';
 
 class ChatAppBar extends AppBar {
   ChatAppBar(
     BuildContext context, {
     required VoidCallback onPressed,
-    super.key, required String title,
+    super.key,
+    required String title,
   }) : super(
           title: AppBarChat(
             onPressed: onPressed,
@@ -33,12 +34,11 @@ class AppBarChat extends StatelessWidget {
       child: Row(
         children: [
           GestureDetector(
-            onTap: onPressed,
-            child: const Icon(
-              Icons.arrow_back_ios,
-              color: Colors.white,
-            )
-          ),
+              onTap: onPressed,
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: Colors.white,
+              )),
           const ProfileAvatar(),
           const SizedBox(width: 16),
           Text(title, style: context.textTheme.headline),
