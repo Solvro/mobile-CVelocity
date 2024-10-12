@@ -51,7 +51,10 @@ class _Card extends StatelessWidget {
         ),
         subtitle: Text(
           company,
-          style: context.textTheme.smallBoldText,
+          style: context.textTheme.smallBoldText.copyWith(
+            fontWeight: FontWeight.normal,
+            color: context.colorTheme.lightGrey,
+          ),
         ),
         trailing: Text(
           duration,
