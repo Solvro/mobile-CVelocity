@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../profile-preview-view/profile_preview_view.dart';
+import '../explore-view/explore_view.dart';
 import 'bottom_navbar_controller.dart';
 
 class MainWidget extends ConsumerWidget {
   const MainWidget({super.key});
 
   static const widgetMap = {
-    BottomNavbarEnum.explore: ProfilePreviewView(),
+    BottomNavbarEnum.explore: ExploreView(),
     BottomNavbarEnum.likes: Scaffold(
       body: Center(
         child: Text("2"),
