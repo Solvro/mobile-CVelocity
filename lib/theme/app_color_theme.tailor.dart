@@ -9,32 +9,29 @@ part of 'app_color_theme.dart';
 // **************************************************************************
 
 mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
-  Color get floralWhite;
-  Color get richBlack;
-  Color get caribbeanGreen;
-  Color get orangeWheel;
-  Color get siennaBrown;
-  Color get platinumLightGrey;
-  Color get burgundyRed;
+  Color get indigoLight;
+  Color get indigoDark;
+  Color get russianViolet;
+  Color get onyx;
+  Color get jet;
+  Color get lightGrey;
 
   @override
   AppColorTheme copyWith({
-    Color? floralWhite,
-    Color? richBlack,
-    Color? caribbeanGreen,
-    Color? orangeWheel,
-    Color? siennaBrown,
-    Color? platinumLightGrey,
-    Color? burgundyRed,
+    Color? indigoLight,
+    Color? indigoDark,
+    Color? russianViolet,
+    Color? onyx,
+    Color? jet,
+    Color? lightGrey,
   }) {
     return AppColorTheme(
-      floralWhite: floralWhite ?? this.floralWhite,
-      richBlack: richBlack ?? this.richBlack,
-      caribbeanGreen: caribbeanGreen ?? this.caribbeanGreen,
-      orangeWheel: orangeWheel ?? this.orangeWheel,
-      siennaBrown: siennaBrown ?? this.siennaBrown,
-      platinumLightGrey: platinumLightGrey ?? this.platinumLightGrey,
-      burgundyRed: burgundyRed ?? this.burgundyRed,
+      indigoLight: indigoLight ?? this.indigoLight,
+      indigoDark: indigoDark ?? this.indigoDark,
+      russianViolet: russianViolet ?? this.russianViolet,
+      onyx: onyx ?? this.onyx,
+      jet: jet ?? this.jet,
+      lightGrey: lightGrey ?? this.lightGrey,
     );
   }
 
@@ -42,14 +39,12 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
   AppColorTheme lerp(covariant ThemeExtension<AppColorTheme>? other, double t) {
     if (other is! AppColorTheme) return this as AppColorTheme;
     return AppColorTheme(
-      floralWhite: Color.lerp(floralWhite, other.floralWhite, t)!,
-      richBlack: Color.lerp(richBlack, other.richBlack, t)!,
-      caribbeanGreen: Color.lerp(caribbeanGreen, other.caribbeanGreen, t)!,
-      orangeWheel: Color.lerp(orangeWheel, other.orangeWheel, t)!,
-      siennaBrown: Color.lerp(siennaBrown, other.siennaBrown, t)!,
-      platinumLightGrey:
-          Color.lerp(platinumLightGrey, other.platinumLightGrey, t)!,
-      burgundyRed: Color.lerp(burgundyRed, other.burgundyRed, t)!,
+      indigoLight: Color.lerp(indigoLight, other.indigoLight, t)!,
+      indigoDark: Color.lerp(indigoDark, other.indigoDark, t)!,
+      russianViolet: Color.lerp(russianViolet, other.russianViolet, t)!,
+      onyx: Color.lerp(onyx, other.onyx, t)!,
+      jet: Color.lerp(jet, other.jet, t)!,
+      lightGrey: Color.lerp(lightGrey, other.lightGrey, t)!,
     );
   }
 
@@ -59,31 +54,26 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
         (other.runtimeType == runtimeType &&
             other is AppColorTheme &&
             const DeepCollectionEquality()
-                .equals(floralWhite, other.floralWhite) &&
-            const DeepCollectionEquality().equals(richBlack, other.richBlack) &&
+                .equals(indigoLight, other.indigoLight) &&
             const DeepCollectionEquality()
-                .equals(caribbeanGreen, other.caribbeanGreen) &&
+                .equals(indigoDark, other.indigoDark) &&
             const DeepCollectionEquality()
-                .equals(orangeWheel, other.orangeWheel) &&
-            const DeepCollectionEquality()
-                .equals(siennaBrown, other.siennaBrown) &&
-            const DeepCollectionEquality()
-                .equals(platinumLightGrey, other.platinumLightGrey) &&
-            const DeepCollectionEquality()
-                .equals(burgundyRed, other.burgundyRed));
+                .equals(russianViolet, other.russianViolet) &&
+            const DeepCollectionEquality().equals(onyx, other.onyx) &&
+            const DeepCollectionEquality().equals(jet, other.jet) &&
+            const DeepCollectionEquality().equals(lightGrey, other.lightGrey));
   }
 
   @override
   int get hashCode {
     return Object.hash(
       runtimeType.hashCode,
-      const DeepCollectionEquality().hash(floralWhite),
-      const DeepCollectionEquality().hash(richBlack),
-      const DeepCollectionEquality().hash(caribbeanGreen),
-      const DeepCollectionEquality().hash(orangeWheel),
-      const DeepCollectionEquality().hash(siennaBrown),
-      const DeepCollectionEquality().hash(platinumLightGrey),
-      const DeepCollectionEquality().hash(burgundyRed),
+      const DeepCollectionEquality().hash(indigoLight),
+      const DeepCollectionEquality().hash(indigoDark),
+      const DeepCollectionEquality().hash(russianViolet),
+      const DeepCollectionEquality().hash(onyx),
+      const DeepCollectionEquality().hash(jet),
+      const DeepCollectionEquality().hash(lightGrey),
     );
   }
 }

@@ -11,27 +11,21 @@ part of 'app_text_theme.dart';
 mixin _$AppTextThemeTailorMixin on ThemeExtension<AppTextTheme> {
   TextStyle get headline;
   TextStyle get smallText;
-  TextStyle get smallPomegradeText;
   TextStyle get smallBoldText;
   TextStyle get mediumBoldText;
-  TextStyle get mediumGrayBoldText;
 
   @override
   AppTextTheme copyWith({
     TextStyle? headline,
     TextStyle? smallText,
-    TextStyle? smallPomegradeText,
     TextStyle? smallBoldText,
     TextStyle? mediumBoldText,
-    TextStyle? mediumGrayBoldText,
   }) {
     return AppTextTheme(
       headline: headline ?? this.headline,
       smallText: smallText ?? this.smallText,
-      smallPomegradeText: smallPomegradeText ?? this.smallPomegradeText,
       smallBoldText: smallBoldText ?? this.smallBoldText,
       mediumBoldText: mediumBoldText ?? this.mediumBoldText,
-      mediumGrayBoldText: mediumGrayBoldText ?? this.mediumGrayBoldText,
     );
   }
 
@@ -41,12 +35,8 @@ mixin _$AppTextThemeTailorMixin on ThemeExtension<AppTextTheme> {
     return AppTextTheme(
       headline: TextStyle.lerp(headline, other.headline, t)!,
       smallText: TextStyle.lerp(smallText, other.smallText, t)!,
-      smallPomegradeText:
-          TextStyle.lerp(smallPomegradeText, other.smallPomegradeText, t)!,
       smallBoldText: TextStyle.lerp(smallBoldText, other.smallBoldText, t)!,
       mediumBoldText: TextStyle.lerp(mediumBoldText, other.mediumBoldText, t)!,
-      mediumGrayBoldText:
-          TextStyle.lerp(mediumGrayBoldText, other.mediumGrayBoldText, t)!,
     );
   }
 
@@ -58,13 +48,9 @@ mixin _$AppTextThemeTailorMixin on ThemeExtension<AppTextTheme> {
             const DeepCollectionEquality().equals(headline, other.headline) &&
             const DeepCollectionEquality().equals(smallText, other.smallText) &&
             const DeepCollectionEquality()
-                .equals(smallPomegradeText, other.smallPomegradeText) &&
-            const DeepCollectionEquality()
                 .equals(smallBoldText, other.smallBoldText) &&
             const DeepCollectionEquality()
-                .equals(mediumBoldText, other.mediumBoldText) &&
-            const DeepCollectionEquality()
-                .equals(mediumGrayBoldText, other.mediumGrayBoldText));
+                .equals(mediumBoldText, other.mediumBoldText));
   }
 
   @override
@@ -73,10 +59,8 @@ mixin _$AppTextThemeTailorMixin on ThemeExtension<AppTextTheme> {
       runtimeType.hashCode,
       const DeepCollectionEquality().hash(headline),
       const DeepCollectionEquality().hash(smallText),
-      const DeepCollectionEquality().hash(smallPomegradeText),
       const DeepCollectionEquality().hash(smallBoldText),
       const DeepCollectionEquality().hash(mediumBoldText),
-      const DeepCollectionEquality().hash(mediumGrayBoldText),
     );
   }
 }

@@ -1,41 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
 
 import '../theme/colors.dart';
+import 'logo.dart';
+import 'profile_avatar.dart';
 
 class LogoAppBar extends AppBar {
   LogoAppBar(
     BuildContext context, {
+    bool implyActions = true,
     super.key,
   }) : super(
-          title: const AppBarLogo(),
+          title: AppBarLogo(
+            implyActions: implyActions,
+          ),
           centerTitle: false,
           titleSpacing: 0,
-          backgroundColor: CVColors.floralWhite,
+          backgroundColor: implyActions ? CVColors.onyx : Colors.transparent,
           scrolledUnderElevation: 0,
           automaticallyImplyLeading: false,
         );
 }
 
 class AppBarLogo extends StatelessWidget {
-  const AppBarLogo({super.key});
-
+  const AppBarLogo({super.key, required this.implyActions});
+  final bool implyActions;
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 48),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            width: 100,
-            height: 50,
-            child: Placeholder(),
-          ),
-          ShadAvatar(
-            'https://app.requestly.io/delay/2000/avatars.githubusercontent.com/u/124599?v=4',
-            placeholder: Text('CN'),
-          ),
+          const CVLogo(),
+          if (implyActions) const ProfileAvatar(),
         ],
       ),
     );
