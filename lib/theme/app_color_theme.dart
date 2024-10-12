@@ -3,7 +3,7 @@ import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';
 
 import 'colors.dart';
 
-part '../../theme/app_color_theme.tailor.dart';
+part 'app_color_theme.tailor.dart';
 
 @tailorMixinComponent
 class AppColorTheme extends ThemeExtension<AppColorTheme>
