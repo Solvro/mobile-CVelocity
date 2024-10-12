@@ -5,8 +5,8 @@ part 'bottom_navbar_controller.g.dart';
 
 enum BottomNavbarEnum {
   explore(icon: Icons.search, label: "Explore"),
-  likes(icon: Icons.favorite, label: "Likes"),
-  chats(icon: Icons.chat_bubble, label: "Chats");
+  likes(icon: Icons.favorite_outline, label: "Likes"),
+  chats(icon: Icons.chat_bubble_outline, label: "Chats");
 
   const BottomNavbarEnum({
     required this.icon,
