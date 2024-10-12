@@ -1,11 +1,11 @@
 import 'package:cvelocity/features/auth_view/widgets/my_outlined_button.dart';
-import 'package:cvelocity/features/profile-preview-view/widgets/header.dart';
 import 'package:cvelocity/features/profile-preview-view/widgets/my_text_field.dart';
 import 'package:cvelocity/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class LoginWidget extends StatelessWidget {
   const LoginWidget({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +38,7 @@ class LoginWidget extends StatelessWidget {
                 obscureText: true,
               ),
               const SizedBox(height: 20),
-              MyOutlinedButton(onPressed: () {}, text: 'Login')
+              MyOutlinedButton(onPressed: (){}, text: 'Login')
             ],
           ),
         ),

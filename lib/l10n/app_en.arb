@@ -1,3 +1,7 @@
 {
-    "helloWorld": "Hello World!"
+    "email": "Email",
+    "password": "Password",
+    "enter_password": "Enter your password",
+    "enter_email": "Enter your email",
+    "repeat_password": "Repeat your password"
 }
