@@ -24,7 +24,7 @@ class LikesView extends StatelessWidget {
                 index: index,
               ),
           itemCount: 20,
-          padding: const EdgeInsets.all(10)),
+          padding: const EdgeInsets.all(10).copyWith(top: 140)),
     );
   }
 }
