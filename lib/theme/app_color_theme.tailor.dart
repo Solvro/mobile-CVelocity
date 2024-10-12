@@ -13,6 +13,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
   Color get indigoDark;
   Color get russianViolet;
   Color get onyx;
+  Color get jet;
   Color get lightGrey;
 
   @override
@@ -21,6 +22,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
     Color? indigoDark,
     Color? russianViolet,
     Color? onyx,
+    Color? jet,
     Color? lightGrey,
   }) {
     return AppColorTheme(
@@ -28,6 +30,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
       indigoDark: indigoDark ?? this.indigoDark,
       russianViolet: russianViolet ?? this.russianViolet,
       onyx: onyx ?? this.onyx,
+      jet: jet ?? this.jet,
       lightGrey: lightGrey ?? this.lightGrey,
     );
   }
@@ -40,6 +43,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
       indigoDark: Color.lerp(indigoDark, other.indigoDark, t)!,
       russianViolet: Color.lerp(russianViolet, other.russianViolet, t)!,
       onyx: Color.lerp(onyx, other.onyx, t)!,
+      jet: Color.lerp(jet, other.jet, t)!,
       lightGrey: Color.lerp(lightGrey, other.lightGrey, t)!,
     );
   }
@@ -56,6 +60,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
             const DeepCollectionEquality()
                 .equals(russianViolet, other.russianViolet) &&
             const DeepCollectionEquality().equals(onyx, other.onyx) &&
+            const DeepCollectionEquality().equals(jet, other.jet) &&
             const DeepCollectionEquality().equals(lightGrey, other.lightGrey));
   }
 
@@ -67,6 +72,7 @@ mixin _$AppColorThemeTailorMixin on ThemeExtension<AppColorTheme> {
       const DeepCollectionEquality().hash(indigoDark),
       const DeepCollectionEquality().hash(russianViolet),
       const DeepCollectionEquality().hash(onyx),
+      const DeepCollectionEquality().hash(jet),
       const DeepCollectionEquality().hash(lightGrey),
     );
   }

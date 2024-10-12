@@ -9,7 +9,7 @@ class ExpCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: context.colorTheme.indigoDark,
+      color: context.colorTheme.jet,
       child: ListTile(
         title: Text(
           experience.jobTitle,
