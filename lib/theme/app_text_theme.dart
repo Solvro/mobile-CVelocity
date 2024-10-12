@@ -4,7 +4,7 @@ import 'package:theme_tailor_annotation/theme_tailor_annotation.dart';
 import 'colors.dart';
 import 'typography.dart';
 
-part 'app_text_theme.tailor.dart';
+part '../../theme/app_text_theme.tailor.dart';
 
 @tailorMixinComponent
 class AppTextTheme extends ThemeExtension<AppTextTheme>

@@ -1,6 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
+
+import '../theme/colors.dart';
 
 class LogoAppBar extends AppBar {
   LogoAppBar(
@@ -17,7 +18,6 @@ class LogoAppBar extends AppBar {
 }
 
 class AppBarLogo extends StatelessWidget {
-  
   const AppBarLogo({super.key});
 
   @override
