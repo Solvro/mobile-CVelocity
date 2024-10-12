@@ -14,10 +14,10 @@ class LikesView extends StatelessWidget {
       appBar: LogoAppBar(context),
       body: GridView.builder(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent:
-                180, // Maximum width of a grid item  // Aspect ratio of each grid item (width / height)
-            crossAxisSpacing: 10, // Spacing between items along the cross-axis
+            maxCrossAxisExtent: 250,
+            crossAxisSpacing: 10,
             mainAxisSpacing: 10,
+            mainAxisExtent: 230,
           ),
           itemBuilder: (BuildContext context, int index) => _UserCard(
                 index: index,
@@ -34,35 +34,51 @@ class _UserCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(20.0),
-      child:
-          Stack(alignment: Alignment.center, fit: StackFit.expand, children: [
-        Container(
-          color: context.colorTheme.jet,
-          child: Padding(
-            padding: const EdgeInsets.all(15),
-            child: Column(
+    return Center(
+      child: SizedBox(
+        width: 210,
+        height: 230,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20.0),
+          child: Stack(
+              alignment: Alignment.center,
+              fit: StackFit.expand,
               children: [
-                ClipRRect(
-                    borderRadius: BorderRadius.circular(20.0),
-                    child: const Image(
-                      image: NetworkImage(
-                          'https://app.requestly.io/delay/2000/avatars.githubusercontent.com/u/124599?v=4'),
-                      width: 100,
-                      height: 100,
-                    )),
-                const SizedBox(height: 10),
-                Text(
-                  'User $index',
-                  style: context.textTheme.smallText,
+                Container(
+                  color: context.colorTheme.jet,
+                  child: Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const SizedBox(height: 20),
+                        ClipRRect(
+                            borderRadius: BorderRadius.circular(20.0),
+                            child: const Image(
+                              image: NetworkImage(
+                                  'https://app.requestly.io/delay/2000/avatars.githubusercontent.com/u/124599?v=4'),
+                              width: 130,
+                              height: 130,
+                            )),
+                        const SizedBox(height: 10),
+                        Text(
+                          'User $index',
+                          style: context.textTheme.smallText,
+                        ),
+                        const SizedBox(height: 5),
+                        Text(
+                          'Subtitle',
+                          style: context.textTheme.smallText
+                              .copyWith(color: context.colorTheme.lightGrey),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-              ],
-            ),
-          ),
+                TileSplash(onTap: () {}),
+              ]),
         ),
-        TileSplash(onTap: () {}),
-      ]),
+      ),
     );
   }
 }
