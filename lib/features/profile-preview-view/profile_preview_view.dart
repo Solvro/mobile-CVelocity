@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../../theme/app_theme.dart';
@@ -11,14 +13,34 @@ import 'widgets/tag.dart';
 import 'widgets/tile_wrap.dart';
 
 class ProfilePreviewView extends StatelessWidget {
-  const ProfilePreviewView(this.cv, {super.key});
+  const ProfilePreviewView(
+    this.cv, {
+    super.key,
+    this.isDetailView = false,
+    this.actions = const [ProfileAvatar()],
+  });
   final Cv cv;
+  final bool isDetailView;
+
+  final List<Widget> actions;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: context.colorTheme.onyx,
         body: CustomScrollView(slivers: [
           SliverAppBar.large(
+            automaticallyImplyLeading: false,
+            leading: isDetailView
+                ? IconButton(
+                    icon: Icon(
+                      Platform.isIOS
+                          ? Icons.arrow_back_ios_new_sharp
+                          : Icons.arrow_back,
+                      color: Colors.white,
+                    ),
+                    onPressed: () => Navigator.of(context).pop(),
+                  )
+                : null,
             elevation: 0,
             scrolledUnderElevation: 0,
             backgroundColor: context.colorTheme.onyx,
@@ -36,21 +58,20 @@ class ProfilePreviewView extends StatelessWidget {
                     fit: BoxFit.cover,
                     cv.photo,
                   ),
-                  Align(
-                    alignment: Alignment.topLeft,
-                    child: SafeArea(
-                      child: SizedBox(
-                        height: kToolbarHeight,
-                        child: LogoAppBar(context, implyActions: false),
+                  if (!isDetailView)
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: SafeArea(
+                        child: SizedBox(
+                          height: kToolbarHeight,
+                          child: LogoAppBar(context, implyActions: false),
+                        ),
                       ),
                     ),
-                  ),
                 ],
               ),
             ),
-            actions: const [
-              ProfileAvatar(),
-            ],
+            actions: actions,
           ),
           SliverToBoxAdapter(
               child: Container(
