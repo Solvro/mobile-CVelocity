@@ -24,6 +24,10 @@ class HeadlineTextStyle extends BoldBodyTextStyle {
   const HeadlineTextStyle({super.color}) : super(fontSize: 19);
 }
 
+class LargeHeadlineTextStyle extends BoldBodyTextStyle {
+  const LargeHeadlineTextStyle({super.color}) : super(fontSize: 27);
+}
+
 class TitleTextStyle extends BoldBodyTextStyle {
   const TitleTextStyle({super.color}) : super(fontSize: 17);
 }

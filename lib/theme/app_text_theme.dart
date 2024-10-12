@@ -9,6 +9,7 @@ part 'app_text_theme.tailor.dart';
 class AppTextTheme extends ThemeExtension<AppTextTheme>
     with _$AppTextThemeTailorMixin {
   const AppTextTheme({
+    this.largeHeadline = const LargeHeadlineTextStyle(),
     // Headline 19px, w500
     this.headline = const HeadlineTextStyle(),
     // 17px
@@ -23,6 +24,7 @@ class AppTextTheme extends ThemeExtension<AppTextTheme>
     // MediumBoldText 16px, w500
     this.mediumBoldText = const MediumBoldTextStyle(),
   });
+  final TextStyle largeHeadline;
   @override
   final TextStyle headline;
   @override
