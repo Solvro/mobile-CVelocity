@@ -1,16 +1,14 @@
-import 'package:cvelocity/features/bottom_navbar_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'bottom_navbar_controller.dart';
+import 'profile-preview-view/profile_preview_view.dart';
 
 class MainWidget extends ConsumerWidget {
   const MainWidget({super.key});
 
   static const widgetMap = {
-    BottomNavbarEnum.explore: Scaffold(
-      body: Center(
-        child: Text("1"),
-      ),
-    ),
+    BottomNavbarEnum.explore: ProfilePreviewView(),
     BottomNavbarEnum.likes: Scaffold(
       body: Center(
         child: Text("2"),

@@ -1,10 +1,9 @@
-import 'package:cvelocity/colors.dart';
-import 'package:cvelocity/features/main_widget.dart';
-import 'package:cvelocity/features/bottom_navbar_controller.dart';
-import 'package:cvelocity/widgets/logo_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:shadcn_ui/shadcn_ui.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'features/bottom_navbar_controller.dart';
+import 'features/main_widget.dart';
+import 'theme/app_theme.dart';
 
 void main() {
   runApp(const ProviderScope(child: MyApp()));
@@ -16,8 +15,9 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const MaterialApp(
-      home: Scaffold(
+    return MaterialApp(
+      theme: ThemeData(extensions: const [AppTheme()]),
+      home: const Scaffold(
         body: MainWidget(),
         bottomNavigationBar: MyBottomNavBar(),
       ),
@@ -46,7 +46,7 @@ class MyBottomNavBar extends ConsumerWidget {
           ),
         )
       ],
-      selectedItemColor: CVColors.orangeWheel,
+      selectedItemColor: context.colorTheme.indigoDark,
       iconSize: 40,
     );
   }
