@@ -1,4 +1,5 @@
 import 'package:cvelocity/colors.dart';
+import 'package:cvelocity/widgets/logo_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:shadcn_ui/shadcn_ui.dart';
 
@@ -45,6 +46,7 @@ class MyApp extends StatelessWidget {
             ),
           )),
       home: Scaffold(
+        appBar: LogoAppBar(context),
         body: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
