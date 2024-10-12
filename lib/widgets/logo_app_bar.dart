@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../theme/colors.dart';
+import '../theme/app_theme.dart';
 import 'logo.dart';
 import 'profile_avatar.dart';
 
@@ -15,7 +15,8 @@ class LogoAppBar extends AppBar {
           ),
           centerTitle: false,
           titleSpacing: 0,
-          backgroundColor: implyActions ? CVColors.onyx : Colors.transparent,
+          backgroundColor:
+              implyActions ? context.colorTheme.jet : Colors.transparent,
           scrolledUnderElevation: 0,
           automaticallyImplyLeading: false,
         );

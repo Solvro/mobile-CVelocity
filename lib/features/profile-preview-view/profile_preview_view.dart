@@ -17,7 +17,13 @@ class ProfilePreviewView extends StatelessWidget {
         body: CustomScrollView(
           slivers: [
             SliverAppBar.large(
-              title: Text(title),
+              elevation: 0,
+              scrolledUnderElevation: 0,
+              backgroundColor: context.colorTheme.onyx,
+              title: Text(
+                title,
+                style: context.textTheme.headline,
+              ),
               centerTitle: false,
               expandedHeight: 400,
               flexibleSpace: FlexibleSpaceBar(

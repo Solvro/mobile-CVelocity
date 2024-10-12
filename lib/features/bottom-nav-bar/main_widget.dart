@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../profile-preview-view/profile_preview_view.dart';
 import 'bottom_navbar_controller.dart';
-import 'profile-preview-view/profile_preview_view.dart';
 
 class MainWidget extends ConsumerWidget {
   const MainWidget({super.key});

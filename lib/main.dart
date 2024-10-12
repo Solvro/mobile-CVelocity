@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'features/bottom_navbar_controller.dart';
-import 'features/main_widget.dart';
+import 'features/bottom-nav-bar/bottom_navbar_controller.dart';
+import 'features/bottom-nav-bar/main_widget.dart';
 import 'theme/app_theme.dart';
 
 void main() {
