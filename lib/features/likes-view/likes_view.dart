@@ -1,7 +1,7 @@
+import 'package:cvelocity/widgets/blurred_logo_app_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/app_theme.dart';
-import '../../widgets/logo_app_bar.dart';
 import '../../widgets/tile_splash.dart';
 
 class LikesView extends StatelessWidget {
@@ -10,8 +10,9 @@ class LikesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: BlurredLogoAppBar(context),
       backgroundColor: context.colorTheme.onyx,
-      appBar: LogoAppBar(context),
       body: GridView.builder(
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
             maxCrossAxisExtent: 250,

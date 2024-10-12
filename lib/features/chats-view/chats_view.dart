@@ -10,7 +10,10 @@ class ChatsView extends StatelessWidget {
   static const List<Map<String, String>> mockChats = [
     {'name': 'Zabka', 'message': 'Arka gdynia'},
     {'name': 'Biedronka', 'message': 'Arka gdynia'},
-    {'name': 'Akademia Sztuk Pieknych', 'message': 'Arka gdynia'},
+    {
+      'name': 'Akademia Sztuk Pieknych',
+      'message': 'Arka gdynia Arka gdynia Arka gdynia Arka gdynia'
+    },
     {'name': 'Akademia Sztuk Pieknych', 'message': 'Arka gdynia'},
     {'name': 'Akademia Sztuk Pieknych', 'message': 'Arka gdynia'},
     {'name': 'Akademia Sztuk Pieknych', 'message': 'Arka gdynia'},
@@ -30,7 +33,8 @@ class ChatsView extends StatelessWidget {
             itemBuilder: (context, index) {
               final chat = mockChats[index];
               return Container(
-                padding: const EdgeInsets.all(16),
+                padding: const EdgeInsets.only(
+                    left: 16, right: 32, bottom: 16, top: 16),
                 margin: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                     color: context.colorTheme.jet,
@@ -54,6 +58,8 @@ class ChatsView extends StatelessWidget {
                       Text(
                         chat['message']!,
                         style: TextStyle(color: context.colorTheme.lightGrey),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
                       )
                     ],
                   ))
