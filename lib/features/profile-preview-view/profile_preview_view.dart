@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/logo_app_bar.dart';
 import '../../widgets/profile_avatar.dart';
-import 'models/experience.dart';
+import 'models/cv.dart';
 import 'widgets/desc.dart';
 import 'widgets/exp_card.dart';
 import 'widgets/header.dart';
@@ -11,8 +11,8 @@ import 'widgets/tag.dart';
 import 'widgets/tile_wrap.dart';
 
 class ProfilePreviewView extends StatelessWidget {
-  const ProfilePreviewView({super.key});
-  final String title = 'Janusz Kowalinski';
+  const ProfilePreviewView(this.cv, {super.key});
+  final Cv cv;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,7 +23,7 @@ class ProfilePreviewView extends StatelessWidget {
             scrolledUnderElevation: 0,
             backgroundColor: context.colorTheme.onyx,
             title: Text(
-              title,
+              cv.fullName,
               style: context.textTheme.headline,
             ),
             centerTitle: false,
@@ -34,7 +34,7 @@ class ProfilePreviewView extends StatelessWidget {
                 children: [
                   Image.network(
                     fit: BoxFit.cover,
-                    'https://app.requestly.io/delay/2000/avatars.githubusercontent.com/u/124599?v=4',
+                    cv.photo,
                   ),
                   Align(
                     alignment: Alignment.topLeft,
@@ -69,25 +69,22 @@ class ProfilePreviewView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: ListTile(
                         title: Text(
-                          'Janusz Kowalinski',
+                          cv.fullName,
                           style:
                               context.textTheme.headline.copyWith(fontSize: 24),
                         ),
                         subtitle: Text(
-                          'Flutter Developer',
+                          cv.title,
                           style: context.textTheme.title.copyWith(
                             color: context.colorTheme.lightGrey,
                           ),
                         ),
                       ),
                     ),
-                    const TileWrap(
+                    TileWrap(
                       title: "Tagi",
                       children: [
-                        MyTag('IT'),
-                        MyTag("Gastro"),
-                        MyTag("Gastro"),
-                        MyTag("Gastro"),
+                        ...cv.tags.map((e) => MyTag(e.name)),
                       ],
                     ),
                     ListTile(
@@ -98,54 +95,26 @@ class ProfilePreviewView extends StatelessWidget {
                           style: context.textTheme.headline,
                         ),
                       ),
-                      subtitle: const Desc(
-                        "Janusz Kowalinski is a passionate Flutter Developer with over 3 years of experience in building high-quality mobile applications. He has a strong background in Dart programming and a keen eye for UI/UX design. Janusz enjoys solving complex problems and continuously learning new technologies to stay updated in the ever-evolving field of mobile development.Janusz Kowalinski is a passionate Flutter Developer with over 3 years of experience in building high-quality mobile applications. He has a strong background in Dart programming and a keen eye for UI/UX design. Janusz enjoys solving complex problems and continuously learning new technologies to stay updated in the ever-evolving field of mobile development.",
-                      ),
+                      subtitle: Desc(cv.description),
                     ),
-                    const TileWrap(
+                    TileWrap(
                       title: 'Umiejętnosci',
                       children: [
-                        MyTag('Word'),
-                        MyTag("Excel"),
-                        MyTag("Python"),
-                        MyTag("Kasa fiskalna"),
-                        MyTag("Negocjacje"),
+                        ...cv.skills.map(
+                          (e) => MyTag(e.name),
+                        ),
                       ],
                     ),
                     const Header("Doświadczenie"),
-                    const ExpCard(Experience(
-                      jobTitle: 'Flutter Developer',
-                      company: 'Google',
-                      experience: 2,
-                    )),
-                    const ExpCard(Experience(
-                      jobTitle: 'Dart Developer',
-                      company: 'Google',
-                      experience: 2,
-                    )),
-                    const ExpCard(Experience(
-                      jobTitle: 'Android Developer',
-                      company: 'Google',
-                      experience: 2,
-                    )),
+                    ...cv.experience.map(
+                      (e) => ExpCard(e),
+                    ),
                     const Header("Edukacja"),
-                    const ExpCard(Experience(
-                      jobTitle: 'Informatyka',
-                      company: 'Politechnika Warszawska',
-                      experience: 5,
-                    )),
-                    const ExpCard(Experience(
-                      jobTitle: 'Informatyka',
-                      company: 'Politechnika Warszawska',
-                      experience: 5,
-                    )),
-                    const ExpCard(Experience(
-                      jobTitle: 'Informatyka',
-                      company: 'Politechnika Warszawska',
-                      experience: 5,
-                    )),
+                    ...cv.education.map(
+                      (e) => EduCard(e),
+                    ),
                     const SizedBox(
-                      height: 50,
+                      height: 150,
                     )
                   ]),
                 ),
