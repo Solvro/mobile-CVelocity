@@ -29,6 +29,7 @@ class AppTextTheme extends ThemeExtension<AppTextTheme>
   final TextStyle headline;
   @override
   final TextStyle title;
+  @override
   final TextStyle coloredTitle;
   @override
   final TextStyle smallText;
