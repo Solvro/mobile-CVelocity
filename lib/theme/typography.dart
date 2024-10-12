@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'colors.dart';
+
 class BodyTextStyle extends TextStyle {
   const BodyTextStyle({
     super.fontWeight = FontWeight.w400,
@@ -24,6 +26,11 @@ class HeadlineTextStyle extends BoldBodyTextStyle {
 
 class TitleTextStyle extends BoldBodyTextStyle {
   const TitleTextStyle({super.color}) : super(fontSize: 17);
+}
+
+class ColoredTitleTextStyle extends BodyTextStyle {
+  const ColoredTitleTextStyle()
+      : super(fontSize: 17, color: CVColors.lightGrey);
 }
 
 class SmallBoldTextStyle extends BoldBodyTextStyle {

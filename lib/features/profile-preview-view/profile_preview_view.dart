@@ -4,8 +4,11 @@ import '../../theme/app_theme.dart';
 import '../../widgets/logo_app_bar.dart';
 import '../../widgets/profile_avatar.dart';
 import 'models/experience.dart';
+import 'widgets/desc.dart';
 import 'widgets/exp_card.dart';
 import 'widgets/header.dart';
+import 'widgets/tag.dart';
+import 'widgets/tile_wrap.dart';
 
 class ProfilePreviewView extends StatelessWidget {
   const ProfilePreviewView({super.key});
@@ -78,6 +81,37 @@ class ProfilePreviewView extends StatelessWidget {
                         ),
                       ),
                     ),
+                    const TileWrap(
+                      title: "Tagi",
+                      children: [
+                        MyTag('IT'),
+                        MyTag("Gastro"),
+                        MyTag("Gastro"),
+                        MyTag("Gastro"),
+                      ],
+                    ),
+                    ListTile(
+                      title: Padding(
+                        padding: const EdgeInsets.all(4.0),
+                        child: Text(
+                          "Opis",
+                          style: context.textTheme.headline,
+                        ),
+                      ),
+                      subtitle: const Desc(
+                        "Janusz Kowalinski is a passionate Flutter Developer with over 3 years of experience in building high-quality mobile applications. He has a strong background in Dart programming and a keen eye for UI/UX design. Janusz enjoys solving complex problems and continuously learning new technologies to stay updated in the ever-evolving field of mobile development.Janusz Kowalinski is a passionate Flutter Developer with over 3 years of experience in building high-quality mobile applications. He has a strong background in Dart programming and a keen eye for UI/UX design. Janusz enjoys solving complex problems and continuously learning new technologies to stay updated in the ever-evolving field of mobile development.",
+                      ),
+                    ),
+                    const TileWrap(
+                      title: 'Umiejętnosci',
+                      children: [
+                        MyTag('Word'),
+                        MyTag("Excel"),
+                        MyTag("Python"),
+                        MyTag("Kasa fiskalna"),
+                        MyTag("Negocjacje"),
+                      ],
+                    ),
                     const Header("Doświadczenie"),
                     const ExpCard(Experience(
                       jobTitle: 'Flutter Developer',
@@ -110,22 +144,9 @@ class ProfilePreviewView extends StatelessWidget {
                       company: 'Politechnika Warszawska',
                       experience: 5,
                     )),
-                    const Header("Umiejętności"),
-                    const ExpCard(Experience(
-                      jobTitle: 'Flutter',
-                      company: 'Google',
-                      experience: 2,
-                    )),
-                    const ExpCard(Experience(
-                      jobTitle: 'Dart',
-                      company: 'Google',
-                      experience: 2,
-                    )),
-                    const ExpCard(Experience(
-                      jobTitle: 'Android',
-                      company: 'Google',
-                      experience: 2,
-                    )),
+                    const SizedBox(
+                      height: 50,
+                    )
                   ]),
                 ),
               ),
