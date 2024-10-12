@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../auth_view/auth_view.dart';
 import '../explore-view/explore_view.dart';
+import '../likes-view/likes_view.dart';
 import 'bottom_navbar_controller.dart';
 
 class MainWidget extends ConsumerWidget {
@@ -10,7 +10,7 @@ class MainWidget extends ConsumerWidget {
 
   static const widgetMap = {
     BottomNavbarEnum.explore: ExploreView(),
-    BottomNavbarEnum.likes: AuthView(),
+    BottomNavbarEnum.likes: LikesView(),
     BottomNavbarEnum.chats: Scaffold(
       body: Center(
         child: Text("3"),
