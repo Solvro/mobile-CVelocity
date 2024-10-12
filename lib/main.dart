@@ -1,23 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'features/profile-preview-view/profile_preview_view.dart';
+import 'features/bottom_navbar_controller.dart';
+import 'features/main_widget.dart';
 import 'theme/app_theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      theme: ThemeData(
-        extensions: const [AppTheme()],
+      theme: ThemeData(extensions: const [AppTheme()]),
+      home: const Scaffold(
+        body: MainWidget(),
+        bottomNavigationBar: MyBottomNavBar(),
       ),
-      home: const ProfilePreviewView(),
+    );
+  }
+}
+
+class MyBottomNavBar extends ConsumerWidget {
+  const MyBottomNavBar({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final activeTab = ref.watch(bottomNavbarControllerProvider);
+    return BottomNavigationBar(
+      currentIndex: activeTab.index,
+      onTap: (value) => ref
+          .read(bottomNavbarControllerProvider.notifier)
+          .setTab(BottomNavbarEnum.values[value]),
+      items: [
+        ...BottomNavbarEnum.values.map(
+          (e) => BottomNavigationBarItem(
+            icon: Icon(e.icon),
+            label: e.label,
+          ),
+        )
+      ],
+      selectedItemColor: context.colorTheme.indigoDark,
+      iconSize: 40,
     );
   }
 }
