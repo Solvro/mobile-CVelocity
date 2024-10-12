@@ -142,17 +142,6 @@ class SettingsView extends StatelessWidget {
               ),
             ),
           )
-          //   SliverList(
-          //       delegate: SliverChildBuilderDelegate(
-          //     (context, index) => ListTile(
-          //       title: Text(
-          //         'Setting item $index',
-          //         style: TextStyle(color: context.colorTheme.lightGrey),
-          //       ),
-          //     ),
-          //     childCount: 20,
-          //   ))
-          // ],
         ]));
   }
 }
