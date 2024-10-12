@@ -1,11 +1,9 @@
 import 'dart:ui';
 
 abstract class CVColors {
-  static const floralWhite = Color(0xFFFEF9EF);
-  static const richBlack = Color(0xff001524);
-  static const caribbeanGreen = Color(0xff15616D);
-  static const orangeWheel = Color(0xffFF7D00);
-  static const siennaBrown = Color(0xff78290F);
-  static const platinumLightGrey = Color(0xFFDADDD8);
-  static const burgundyRed = Color(0xFF8C172A);
+  static const indigoLight = Color(0xFF610F7F);
+  static const indigoDark = Color(0xFF480863);
+  static const russianViolet = Color(0xFF2F0147);
+  static const onyx = Color(0xFF1E1E1E);
+  static const lightGrey = Color(0xFFEEF0F2);
 }

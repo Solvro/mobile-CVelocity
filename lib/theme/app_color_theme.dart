@@ -9,32 +9,20 @@ part 'app_color_theme.tailor.dart';
 class AppColorTheme extends ThemeExtension<AppColorTheme>
     with _$AppColorThemeTailorMixin {
   const AppColorTheme(
-      {this.floralWhite = CVColors.floralWhite,
-      this.richBlack = CVColors.richBlack,
-      this.caribbeanGreen = CVColors.caribbeanGreen,
-      this.orangeWheel = CVColors.orangeWheel,
-      this.siennaBrown = CVColors.siennaBrown,
-      this.platinumLightGrey = CVColors.platinumLightGrey,
-      this.burgundyRed = CVColors.burgundyRed});
+      {this.indigoDark = CVColors.indigoDark,
+      this.indigoLight = CVColors.indigoLight,
+      this.russianViolet = CVColors.russianViolet,
+      this.onyx = CVColors.onyx,
+      this.lightGrey = CVColors.lightGrey});
 
   @override
-  final Color floralWhite;
-
+  final Color indigoLight;
   @override
-  final Color richBlack;
-
+  final Color indigoDark;
   @override
-  final Color caribbeanGreen;
-
+  final Color russianViolet;
   @override
-  final Color orangeWheel;
-
+  final Color onyx;
   @override
-  final Color siennaBrown;
-
-  @override
-  final Color platinumLightGrey;
-
-  @override
-  final Color burgundyRed;
+  final Color lightGrey;
 }

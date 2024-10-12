@@ -6,7 +6,7 @@ class BodyTextStyle extends TextStyle {
   const BodyTextStyle({
     super.fontWeight = FontWeight.w400,
     super.fontSize = 13.0,
-    super.color = CVColors.richBlack,
+    super.color = CVColors.lightGrey,
     super.height = 1.2,
     super.shadows,
   }) : super(

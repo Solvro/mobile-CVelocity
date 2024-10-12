@@ -15,8 +15,7 @@ class LogoAppBar extends AppBar {
           ),
           centerTitle: false,
           titleSpacing: 0,
-          backgroundColor:
-              implyActions ? CVColors.floralWhite : Colors.transparent,
+          backgroundColor: implyActions ? CVColors.onyx : Colors.transparent,
           scrolledUnderElevation: 0,
           automaticallyImplyLeading: false,
         );

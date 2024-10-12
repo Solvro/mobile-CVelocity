@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import '../../theme/app_theme.dart';
 import '../../widgets/logo_app_bar.dart';
 import '../../widgets/profile_avatar.dart';
+import 'models/experience.dart';
+import 'widgets/exp_card.dart';
+import 'widgets/header.dart';
 
 class ProfilePreviewView extends StatelessWidget {
   const ProfilePreviewView({super.key});
@@ -10,68 +13,98 @@ class ProfilePreviewView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: context.colorTheme.onyx,
         body: CustomScrollView(
-      slivers: [
-        SliverAppBar.large(
-          title: Text(title),
-          centerTitle: false,
-          expandedHeight: 400,
-          flexibleSpace: FlexibleSpaceBar(
-            background: Stack(
-              fit: StackFit.expand,
-              children: [
-                Image.network(
-                  fit: BoxFit.cover,
-                  'https://app.requestly.io/delay/2000/avatars.githubusercontent.com/u/124599?v=4',
-                ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: SafeArea(
-                    child: SizedBox(
-                      height: kToolbarHeight,
-                      child: LogoAppBar(context, implyActions: false),
+          slivers: [
+            SliverAppBar.large(
+              title: Text(title),
+              centerTitle: false,
+              expandedHeight: 400,
+              flexibleSpace: FlexibleSpaceBar(
+                background: Stack(
+                  fit: StackFit.expand,
+                  children: [
+                    Image.network(
+                      fit: BoxFit.cover,
+                      'https://app.requestly.io/delay/2000/avatars.githubusercontent.com/u/124599?v=4',
                     ),
-                  ),
+                    Align(
+                      alignment: Alignment.topLeft,
+                      child: SafeArea(
+                        child: SizedBox(
+                          height: kToolbarHeight,
+                          child: LogoAppBar(context, implyActions: false),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
+              ),
+              actions: const [
+                ProfileAvatar(),
               ],
             ),
-          ),
-          actions: const [
-            ProfileAvatar(),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                ListTile(
+                  title: Text(
+                    'Janusz Kowalinski',
+                    style: context.textTheme.headline.copyWith(fontSize: 24),
+                  ),
+                  subtitle: Text('Flutter Developer',
+                      style: context.textTheme.headline),
+                ),
+                const Header("Doświadczenie"),
+                const ExpCard(Experience(
+                  jobTitle: 'Flutter Developer',
+                  company: 'Google',
+                  experience: 2,
+                )),
+                const ExpCard(Experience(
+                  jobTitle: 'Dart Developer',
+                  company: 'Google',
+                  experience: 2,
+                )),
+                const ExpCard(Experience(
+                  jobTitle: 'Android Developer',
+                  company: 'Google',
+                  experience: 2,
+                )),
+                const Header("Edukacja"),
+                const ExpCard(Experience(
+                  jobTitle: 'Informatyka',
+                  company: 'Politechnika Warszawska',
+                  experience: 5,
+                )),
+                const ExpCard(Experience(
+                  jobTitle: 'Informatyka',
+                  company: 'Politechnika Warszawska',
+                  experience: 5,
+                )),
+                const ExpCard(Experience(
+                  jobTitle: 'Informatyka',
+                  company: 'Politechnika Warszawska',
+                  experience: 5,
+                )),
+                const Header("Umiejętności"),
+                const ExpCard(Experience(
+                  jobTitle: 'Flutter',
+                  company: 'Google',
+                  experience: 2,
+                )),
+                const ExpCard(Experience(
+                  jobTitle: 'Dart',
+                  company: 'Google',
+                  experience: 2,
+                )),
+                const ExpCard(Experience(
+                  jobTitle: 'Android',
+                  company: 'Google',
+                  experience: 2,
+                )),
+              ]),
+            )
           ],
-        ),
-        SliverList(
-          delegate: SliverChildListDelegate([
-            Text(
-              "Szymon Kowaliński",
-              style: context.textTheme.headline,
-            ),
-            Text(
-              "Flutter developer",
-              style: context.textTheme.headline,
-            ),
-            const ExpansionTile(
-              title: Text("Doswiadczenie"),
-              children: [
-                Card(
-                  child: ListTile(
-                    title: Text("Flutter Techlead"),
-                    subtitle: Text("KN Solvro"),
-                    trailing: Text("6yrs"),
-                  ),
-                ),
-                Card(
-                  child: ListTile(
-                    title: Text("Wiceprezes"),
-                    subtitle: Text("KN Solvro"),
-                    trailing: Text("5yrs"),
-                  ),
-                )
-              ],
-            ),
-          ]),
-        )
-      ],
-    ));
+        ));
   }
 }
