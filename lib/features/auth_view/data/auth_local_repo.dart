@@ -33,7 +33,12 @@ class AuthLocalRepository extends _$AuthLocalRepository {
   }
 
   Future<void> logout() async {
-    await (await ref.watch(sharedPrefsSingletonProvider.future)).remove(_key);
+    final prefs = await ref.watch(sharedPrefsSingletonProvider.future);
+    await (prefs).remove(_key);
+    await prefs.remove(_keyId);
+    await prefs
+        .remove(_keyIsCompany);
+    await prefs.remove(_keyFullName);
     ref.invalidateSelf();
   }
 

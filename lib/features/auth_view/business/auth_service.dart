@@ -28,7 +28,7 @@ class AuthService extends _$AuthService {
 
   Future<void> logout() async {
     await ref.read(authLocalRepositoryProvider.notifier).logout();
-    ref.invalidateSelf();
+    
   }
 
   Future<Either<TokenModel, ErrorResponseModel>> login(
