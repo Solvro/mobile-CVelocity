@@ -4,9 +4,9 @@ import '../theme/app_theme.dart';
 
 class ByBigIconButton extends StatelessWidget {
   const ByBigIconButton(
-      {super.key, required this.iconData, required this.onPressed});
+      {super.key, required this.iconData, this.onPressed});
   final IconData iconData;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   @override
   Widget build(BuildContext context) {
     return Material(
