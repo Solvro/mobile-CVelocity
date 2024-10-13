@@ -11,7 +11,7 @@ class ExpCard extends StatelessWidget {
     return _Card(
       position: experience.position,
       company: experience.company,
-      duration: "${experience.duration}years",
+      duration: experience.duration,
     );
   }
 }

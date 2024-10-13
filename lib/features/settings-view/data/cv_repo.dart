@@ -14,13 +14,15 @@ class CvRepository extends _$CvRepository {
   @override
   Future<Cv> build() async {
     final mockTags = [
-      const Tag(tag: 'Flutter'),
-      const Tag(tag: 'Dart'),
+      const Tag(tag: 'IT'),
+      const Tag(tag: 'Software Development'),
     ];
 
     final mockSkills = [
       const Skill(skill: 'Software Development'),
       const Skill(skill: 'UI/UX Design'),
+      const Skill(skill: 'Dart'),
+      const Skill(skill: 'Flutter'),
     ];
 
     final mockExperience = [
