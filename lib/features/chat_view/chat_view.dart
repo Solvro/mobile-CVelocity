@@ -32,7 +32,9 @@ class _ChatViewState extends State<ChatView> {
       return Scaffold(
         appBar: ChatAppBar(
           context,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
           title: 'John Doe',
         ),
         backgroundColor: context.colorTheme.onyx,
