@@ -1,3 +1,4 @@
+import 'package:cvelocity/features/likes-view/likes_mocks.dart';
 import 'package:flutter/material.dart';
 
 import '../../theme/app_theme.dart';
@@ -23,7 +24,7 @@ class LikesView extends StatelessWidget {
           itemBuilder: (BuildContext context, int index) => _UserCard(
                 index: index,
               ),
-          itemCount: 20,
+          itemCount: likedMocks.length,
           padding: const EdgeInsets.all(10).copyWith(top: 140)),
     );
   }
@@ -55,20 +56,21 @@ class _UserCard extends StatelessWidget {
                         const SizedBox(height: 20),
                         ClipRRect(
                             borderRadius: BorderRadius.circular(20.0),
-                            child: const Image(
+                            child: Image(
                               image: NetworkImage(
-                                  'https://app.requestly.io/delay/2000/avatars.githubusercontent.com/u/124599?v=4'),
+                                  likedMocks[index].imageUrl
+                                ),
                               width: 130,
                               height: 130,
                             )),
                         const SizedBox(height: 10),
                         Text(
-                          'User $index',
+                          likedMocks[index].name,
                           style: context.textTheme.smallText,
                         ),
                         const SizedBox(height: 5),
                         Text(
-                          'Subtitle',
+                          likedMocks[index].subtitle,
                           style: context.textTheme.smallText
                               .copyWith(color: context.colorTheme.lightGrey),
                         ),

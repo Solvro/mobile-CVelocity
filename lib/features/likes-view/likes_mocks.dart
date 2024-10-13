@@ -3,52 +3,22 @@ import 'package:cvelocity/features/likes-view/models/liked.dart';
 final likedMocks = [
     Liked(
       name: "Apple Inc.",
-      imageUrl: "https://example.com/apple.jpg",
+      imageUrl: "https://th.bing.com/th/id/OIP.c3O3wBb8uEw0GmoGSwEfdwAAAA?rs=1&pid=ImgDetMain",
       subtitle: "Technology",
     ),
     Liked(
-      name: "Samsung Electronics",
-      imageUrl: "https://example.com/samsung.jpg",
+      name: "Samsung",
+      imageUrl: "https://th.bing.com/th/id/OIP.kZY7sD0VI_8Ii3UjjRlibwHaHa?rs=1&pid=ImgDetMain",
       subtitle: "Electronics",
     ),
     Liked(
       name: "Toyota Motor",
-      imageUrl: "https://example.com/toyota.jpg",
+      imageUrl: "https://th.bing.com/th/id/R.59d0ff6da2f8a9f9ea65d4f4b73b886d?rik=a4ZgnpLaOrREuQ&pid=ImgRaw&r=0",
       subtitle: "Automotive",
     ),
     Liked(
       name: "Amazon",
-      imageUrl: "https://example.com/amazon.jpg",
+      imageUrl: "https://i.pinimg.com/originals/01/ca/da/01cada77a0a7d326d85b7969fe26a728.jpg",
       subtitle: "E-commerce",
-    ),
-    Liked(
-      name: "Alibaba Group",
-      imageUrl: "https://example.com/alibaba.jpg",
-      subtitle: "E-commerce",
-    ),
-    Liked(
-      name: "Microsoft Corporation",
-      imageUrl: "https://example.com/microsoft.jpg",
-      subtitle: "Software",
-    ),
-    Liked(
-      name: "Berkshire Hathaway",
-      imageUrl: "https://example.com/berkshire.jpg",
-      subtitle: "Finance",
-    ),
-    Liked(
-      name: "Tencent",
-      imageUrl: "https://example.com/tencent.jpg",
-      subtitle: "Technology",
-    ),
-    Liked(
-      name: "Tesla, Inc.",
-      imageUrl: "https://example.com/tesla.jpg",
-      subtitle: "Automotive",
-    ),
-    Liked(
-      name: "Nestlé",
-      imageUrl: "https://example.com/nestle.jpg",
-      subtitle: "Food & Beverages",
     ),
   ];
