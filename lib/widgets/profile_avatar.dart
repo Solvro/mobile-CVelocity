@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import '../features/my_profile_view/my_profile.dart';
 
 class ProfileAvatar extends StatelessWidget {
-  const ProfileAvatar({
+  const ProfileAvatar( {
     super.key,
+    this.imageUrl = "https://app.requestly.io/delay/2000/avatars.githubusercontent.com/u/124599?v=4'"
   });
+
+  final String imageUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +18,9 @@ class ProfileAvatar extends StatelessWidget {
           builder: (context) => const MyProfileView(),
         ));
       },
-      icon: const CircleAvatar(
+      icon: CircleAvatar(
         backgroundImage: NetworkImage(
-          'https://app.requestly.io/delay/2000/avatars.githubusercontent.com/u/124599?v=4',
+          imageUrl,
         ),
       ),
     );
