@@ -27,8 +27,11 @@ class MyProfileView extends StatelessWidget {
                     offset: const Offset(28, 0),
                     child:Consumer(builder: (context, ref, child) =>  ByBigIconButton(
                       iconData: Icons.logout,
-                      onPressed: () {
-                        ref.read(authServiceProvider.notifier).logout();
+                      onPressed: () async{
+                         ref.read(authServiceProvider.notifier).logout();
+                        Navigator.of(context).popUntil(
+                          (r) => r.isFirst
+                        );
                       },
                     ),)
                   ),
