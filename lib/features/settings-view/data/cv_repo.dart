@@ -1,6 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../api_base/dio_singleton.dart';
 import '../../auth_view/business/auth_service.dart';
 import '../../auth_view/business/auth_state.dart';
 import '../../profile-preview-view/models/cv.dart';
@@ -11,6 +11,7 @@ part 'cv_repo.g.dart';
 class CvRepository extends _$CvRepository {
   @override
   Future<Cv> build() async {
+    final dio = await ref.watch(dioSingletonProvider.future);
     final auth = await ref.watch(authServiceProvider.future);
     int? userId;
     if (auth is LoggedJobSeeker) {
@@ -20,11 +21,8 @@ class CvRepository extends _$CvRepository {
       userId = auth.token.userId;
     }
     try {
-      final response = await FirebaseFirestore.instance
-          .collection('cvs')
-          .doc(userId.toString())
-          .get();
-      return Cv.fromJson(response.data()!);
+      final response = await dio.get("/users/$userId/cv");
+      return Cv.fromJson(response.data);
     } catch (e) {
       return Cv(
         id: null,
@@ -48,6 +46,7 @@ class CvRepository extends _$CvRepository {
 
   Future<void> putCv(Cv cv) async {
     final auth = await ref.watch(authServiceProvider.future);
+    final dio = await ref.watch(dioSingletonProvider.future);
 
     int? userId;
     if (auth is LoggedJobSeeker) {
@@ -56,10 +55,7 @@ class CvRepository extends _$CvRepository {
     if (auth is LoggedCompany) {
       userId = auth.token.userId;
     }
-    final response = await FirebaseFirestore.instance
-        .collection('cvs')
-        .doc(userId.toString())
-        .set(cv.toJson());
+    final response = dio.post("/cvs", data: cv.toJson());
     return;
   }
 }
