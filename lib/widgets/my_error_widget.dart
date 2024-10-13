@@ -22,3 +22,23 @@ class MyErrorWidget extends StatelessWidget {
     );
   }
 }
+
+class SimpleMyErrorWidget extends StatelessWidget {
+  const SimpleMyErrorWidget(
+    this.error, {
+    super.key,
+  });
+
+  final Object error;
+
+  @override
+  Widget build(BuildContext context) {
+    Logger().e(error);
+    return Container(
+      color: Colors.red,
+      child: const Center(
+        child: Text('Error'),
+      ),
+    );
+  }
+}

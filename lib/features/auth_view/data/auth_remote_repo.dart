@@ -32,5 +32,5 @@ class AuthRemoteRepository {
 
 @riverpod
 AuthRemoteRepository authRemoteRepository(AuthRemoteRepositoryRef ref) {
-  return AuthRemoteRepository(ref.watch(dioSingletonProvider));
+  return AuthRemoteRepository(ref.watch(simpleDioProvider));
 }

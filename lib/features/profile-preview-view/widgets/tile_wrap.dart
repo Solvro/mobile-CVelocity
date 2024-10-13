@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../theme/app_theme.dart';
-import 'tag.dart';
 
 class TileWrap extends StatelessWidget {
   const TileWrap({
@@ -9,7 +8,7 @@ class TileWrap extends StatelessWidget {
     required this.children,
     required this.title,
   });
-  final List<MyTag> children;
+  final List<Widget> children;
   final String title;
   @override
   Widget build(BuildContext context) {

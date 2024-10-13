@@ -105,7 +105,7 @@ class ProfilePreviewView extends StatelessWidget {
                     TileWrap(
                       title: "Tagi",
                       children: [
-                        ...cv.tags.map((e) => MyTag(e.name)),
+                        ...cv.tags.map((e) => MyTag(e.tag)),
                       ],
                     ),
                     ListTile(
@@ -122,7 +122,7 @@ class ProfilePreviewView extends StatelessWidget {
                       title: 'Umiejętnosci',
                       children: [
                         ...cv.skills.map(
-                          (e) => MyTag(e.name),
+                          (e) => MyTag(e.skill),
                         ),
                       ],
                     ),

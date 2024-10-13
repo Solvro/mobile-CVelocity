@@ -1,5 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../skills/skill_model.dart';
+import '../../tags/tag_model.dart';
+
 part 'cv.freezed.dart';
 part 'cv.g.dart';
 
@@ -30,7 +33,7 @@ class Experience with _$Experience {
   const factory Experience({
     required String company,
     required String position,
-    required int duration,
+    required String duration,
   }) = _Experience;
 
   factory Experience.fromJson(Map<String, dynamic> json) =>
@@ -47,24 +50,4 @@ class Education with _$Education {
 
   factory Education.fromJson(Map<String, dynamic> json) =>
       _$EducationFromJson(json);
-}
-
-@freezed
-class Tag with _$Tag {
-  const factory Tag({
-    required int id,
-    required String name,
-  }) = _Tag;
-
-  factory Tag.fromJson(Map<String, dynamic> json) => _$TagFromJson(json);
-}
-
-@freezed
-class Skill with _$Skill {
-  const factory Skill({
-    required int id,
-    required String name,
-  }) = _Skill;
-
-  factory Skill.fromJson(Map<String, dynamic> json) => _$SkillFromJson(json);
 }

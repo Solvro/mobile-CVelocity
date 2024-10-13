@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../widgets/profile_avatar.dart';
 import '../profile-preview-view/models/cv.dart';
 import '../profile-preview-view/profile_preview_view.dart';
+import '../skills/skill_model.dart';
+import '../tags/tag_model.dart';
 
 class ExploreView extends StatelessWidget {
   const ExploreView({super.key});
@@ -38,23 +40,23 @@ class ExploreView extends StatelessWidget {
                   phoneNumber: "+1234567890",
                   fullName: "John Doe",
                   tags: [
-                    const Tag(id: 1, name: "Mobile Development"),
-                    const Tag(id: 2, name: "Backend"),
+                    const Tag(tag: "Mobile Development"),
+                    const Tag(tag: "Backend"),
                   ],
                   skills: [
-                    const Skill(id: 1, name: "Flutter"),
-                    const Skill(id: 2, name: "Dart"),
-                    const Skill(id: 3, name: "Node.js"),
+                    const Skill(skill: "Flutter"),
+                    const Skill(skill: "Dart"),
+                    const Skill(skill: "Node.js"),
                   ],
                   experience: [
                     const Experience(
                         company: "Tech Solutions Inc.",
                         position: "Flutter Developer",
-                        duration: 24),
+                        duration: "24"),
                     const Experience(
                         company: "Web Innovations",
                         position: "Backend Developer",
-                        duration: 36),
+                        duration: "36"),
                   ],
                   education: [
                     const Education(
