@@ -16,9 +16,11 @@ class CvRepository extends _$CvRepository {
     final mockTags = [
       const Tag(tag: 'IT'),
       const Tag(tag: 'Software Development'),
+      const Tag(tag: 'Mobile'),
     ];
 
     final mockSkills = [
+      const Skill(skill: 'Chat GPT'),
       const Skill(skill: 'Software Development'),
       const Skill(skill: 'UI/UX Design'),
       const Skill(skill: 'Dart'),

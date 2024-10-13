@@ -89,7 +89,7 @@ class SettingsView extends StatelessWidget {
                     collapseMode: CollapseMode.pin,
                     title: const Text(
                       'Wypełnij swoje CV',
-                      style: TextStyle(color: Colors.white, fontSize: 24),
+                      style: TextStyle(color: Colors.white, fontSize: 16),
                     ),
                     background: Container(
                       color: context.colorTheme.onyx,
