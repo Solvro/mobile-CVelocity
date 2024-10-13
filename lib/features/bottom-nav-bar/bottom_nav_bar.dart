@@ -31,29 +31,35 @@ class MyBottomNavBar extends ConsumerWidget {
               ),
               padding: const EdgeInsets.all(16),
               child: Center(
-                child: BottomNavigationBar(
-                  currentIndex: activeTab.index,
-                  onTap: (value) => ref
-                      .read(bottomNavbarControllerProvider.notifier)
-                      .setTab(BottomNavbarEnum.values[value]),
-                  items: [
-                    ...BottomNavbarEnum.values.map((e) {
-                      return BottomNavigationBarItem(
-                        icon: Center(
-                          child: Icon(
-                            e.icon,
-                            size: 40,
+                child: Theme(
+                  data: Theme.of(context).copyWith(
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent),
+                  child: BottomNavigationBar(
+                    enableFeedback: false,
+                    currentIndex: activeTab.index,
+                    onTap: (value) => ref
+                        .read(bottomNavbarControllerProvider.notifier)
+                        .setTab(BottomNavbarEnum.values[value]),
+                    items: [
+                      ...BottomNavbarEnum.values.map((e) {
+                        return BottomNavigationBarItem(
+                          icon: Center(
+                            child: Icon(
+                              e.icon,
+                              size: 24,
+                            ),
                           ),
-                        ),
-                        label: e.label,
-                      );
-                    }),
-                  ],
-                  selectedItemColor: context.colorTheme.indigoLight,
-                  unselectedItemColor: context.colorTheme.lightGrey,
-                  iconSize: 40,
-                  backgroundColor: Colors.transparent,
-                  elevation: 0,
+                          label: e.label,
+                        );
+                      }),
+                    ],
+                    selectedItemColor: context.colorTheme.indigoLight,
+                    unselectedItemColor: context.colorTheme.lightGrey,
+                    iconSize: 32,
+                    backgroundColor: Colors.transparent,
+                    elevation: 0,
+                  ),
                 ),
               ),
             )),
