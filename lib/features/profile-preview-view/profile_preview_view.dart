@@ -45,7 +45,7 @@ class ProfilePreviewView extends StatelessWidget {
             scrolledUnderElevation: 0,
             backgroundColor: context.colorTheme.onyx,
             title: Text(
-              cv.fullName,
+              cv.fullName ?? "",
               style: context.textTheme.headline,
             ),
             centerTitle: false,
@@ -56,7 +56,7 @@ class ProfilePreviewView extends StatelessWidget {
                 children: [
                   Image.network(
                     fit: BoxFit.cover,
-                    cv.photo,
+                    cv.photo ?? "",
                   ),
                   if (!isDetailView)
                     Align(
@@ -90,12 +90,12 @@ class ProfilePreviewView extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: ListTile(
                         title: Text(
-                          cv.fullName,
+                          cv.fullName ?? "",
                           style:
                               context.textTheme.headline.copyWith(fontSize: 24),
                         ),
                         subtitle: Text(
-                          cv.title,
+                          cv.title ?? "",
                           style: context.textTheme.title.copyWith(
                             color: context.colorTheme.lightGrey,
                           ),
@@ -116,7 +116,7 @@ class ProfilePreviewView extends StatelessWidget {
                           style: context.textTheme.headline,
                         ),
                       ),
-                      subtitle: Desc(cv.description),
+                      subtitle: Desc(cv.description ?? ""),
                     ),
                     TileWrap(
                       title: 'Umiejętnosci',

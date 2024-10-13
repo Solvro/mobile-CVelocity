@@ -36,8 +36,7 @@ class AuthLocalRepository extends _$AuthLocalRepository {
     final prefs = await ref.watch(sharedPrefsSingletonProvider.future);
     await (prefs).remove(_key);
     await prefs.remove(_keyId);
-    await prefs
-        .remove(_keyIsCompany);
+    await prefs.remove(_keyIsCompany);
     await prefs.remove(_keyFullName);
     ref.invalidateSelf();
   }

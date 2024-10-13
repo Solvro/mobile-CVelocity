@@ -9,20 +9,21 @@ part 'cv.g.dart';
 @freezed
 class Cv with _$Cv {
   const factory Cv({
-    required int id,
-    required String title,
-    required String phoneNumber,
-    required String fullName,
+    required int? id,
+    required String? title,
+    @JsonKey(name: 'phone_number') required String? phoneNumber,
+    required String? fullName,
     required List<Tag> tags,
     required List<Skill> skills,
     required List<Experience> experience,
     required List<Education> education,
-    required String description,
-    required String photo,
-    required bool isRemote,
-    required int searchRange,
-    required DateTime createdAt,
-    required DateTime updatedAt,
+    required String? description,
+    required String? photo,
+    @JsonKey(name: 'is_remote') required bool? isRemote,
+    @JsonKey(name: 'search_range') required int? searchRange,
+    @JsonKey(name: 'created_at') required DateTime? createdAt,
+    @JsonKey(name: 'updated_at') required DateTime? updatedAt,
+    @JsonKey(name: 'user_id') int? userId,
   }) = _Cv;
 
   factory Cv.fromJson(Map<String, dynamic> json) => _$CvFromJson(json);

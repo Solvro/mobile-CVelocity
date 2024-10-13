@@ -4,12 +4,14 @@ import 'package:either_dart/either.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:logger/logger.dart';
 import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';
 
 import '../../theme/app_theme.dart';
 import '../../widgets/my_error_widget.dart';
 import '../../widgets/my_outlined_button.dart';
 import '../api_base/error_response_model.dart';
+import '../api_base/wrap_with_error.dart';
 import '../profile-preview-view/models/cv.dart';
 import '../profile-preview-view/widgets/header.dart';
 import '../profile-preview-view/widgets/tag.dart';
@@ -18,6 +20,7 @@ import '../skills/skill_model.dart';
 import '../skills/skill_repo.dart';
 import '../tags/tag_model.dart';
 import '../tags/tags_repo.dart';
+import 'data/cv_repo.dart';
 import 'models/cv_form_model.dart';
 import 'widgets/cupertino_picker.dart';
 import 'widgets/education.dart';
@@ -55,6 +58,10 @@ class SettingsView extends StatelessWidget {
             )
             .toList(),
         skills: cv.skills,
+        isRemote: cv.isRemote,
+        searchRange: cv.searchRange,
+        phoneNumber: cv.phoneNumber,
+        photo: cv.photo,
       ),
       builder: (context, formModel, child) => Scaffold(
           backgroundColor: context.colorTheme.onyx,
@@ -189,6 +196,29 @@ class SettingsView extends StatelessWidget {
                               );
                             },
                           ),
+                          ReactiveCheckboxListTile(
+                            formControl: formModel.isRemoteControl,
+                            title: Text('Praca zdalna',
+                                style: context.textTheme.title.copyWith(
+                                  color: Colors.white,
+                                )),
+                            activeColor: context.colorTheme.russianViolet,
+                          ),
+                          InputThings(
+                            silverWrap: false,
+                            label: 'Zasięg wyszukiwania',
+                            controller: Left(formModel.searchRangeControl),
+                          ),
+                          InputThings(
+                            silverWrap: false,
+                            label: 'Numer telefonu',
+                            controller: Left(formModel.phoneNumberControl),
+                          ),
+                          InputThings(
+                            silverWrap: false,
+                            controller: Left(formModel.photoControl),
+                            label: 'Zdjęcie URL',
+                          ),
                           const Header("Doświadczenie"),
                           ExperienceInputs(formModel),
                           const Header("Edukacja"),
@@ -206,16 +236,67 @@ class SettingsView extends StatelessWidget {
                             onPressed: () async {
                               if (formModel.form.valid) {
                                 isLoading.value = true;
-                                // final response =
+                                final response = await ref
+                                    .read(cvRepositoryProvider.notifier)
+                                    .putCv(Cv(
+                                      id: null,
+                                      userId: cv.userId,
+                                      tags: (formModel.tagsControl.value ?? [])
+                                          .map(
+                                            (e) => Tag(
+                                              tag: e!.tag,
+                                            ),
+                                          )
+                                          .toList(),
+                                      skills:
+                                          (formModel.skillsControl.value ?? [])
+                                              .map(
+                                                (e) => Skill(
+                                                  skill: e!.skill,
+                                                ),
+                                              )
+                                              .toList(),
+                                      title: formModel.titleControl!.value,
+                                      description:
+                                          formModel.descriptionControl!.value,
+                                      experience:
+                                          (formModel.experienceControl.value ??
+                                                  [])
+                                              .map(
+                                                (e) => Experience.fromJson(e!),
+                                              )
+                                              .toList(),
+                                      education:
+                                          (formModel.educationControl.value ??
+                                                  [])
+                                              .map(
+                                                (e) => Education.fromJson(e!),
+                                              )
+                                              .toList(),
+                                      createdAt: null,
+                                      updatedAt: null,
+                                      fullName: null,
+                                      isRemote:
+                                          formModel.isRemoteControl!.value,
+                                      phoneNumber:
+                                          formModel.phoneNumberControl!.value,
+                                      searchRange:
+                                          formModel.searchRangeControl!.value,
+                                      photo: formModel.photoControl!.value,
+                                    ))
+                                    .wrapWithError();
                                 isLoading.value = false;
-                                // if (response.isError) {
-                                //   isError.value = response.right;
-                                // }
+                                if (response.isError) {
+                                  isError.value = response.right;
+                                }
                               } else {
+                                Logger().e('Form is invalid');
+                                Logger().e(formModel.form.errors);
                                 formModel.form.markAllAsTouched();
                               }
                             },
-                            text: 'ZAPISZ'),
+                            text: 'ZAPISZ',
+                          ),
                   ),
                 ),
                 const SliverToBoxAdapter(
